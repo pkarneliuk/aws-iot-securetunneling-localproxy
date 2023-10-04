@@ -2,8 +2,9 @@ name: CI
 
 on:
   workflow_run:
-    branches:
-      - '*'
+    workflows: [CI]
+    types:
+      - completed
   push:
     branches:
       - '*'
