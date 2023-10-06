@@ -97,6 +97,9 @@ if(BUILD_TESTS)
     file(GLOB TEST_CODE ${PROJECT_SOURCE_DIR}/test/*.cpp)
     set(TEST_SOURCES ${TEST_CODE} ${CORE_SOURCES} ${UTIL_SOURCE})
     add_executable(${AWS_TUNNEL_LOCAL_PROXY_TEST_NAME} ${TEST_SOURCES})
+
+    enable_testing()
+    add_test(NAME LocalProxyTest COMMAND $<TARGET_FILE:${AWS_TUNNEL_LOCAL_PROXY_TEST_NAME}>)
 endif(BUILD_TESTS)
 
 #libatomic ensured for all platforms except OSX and WINDOWS
